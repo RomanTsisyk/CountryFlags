@@ -15,7 +15,7 @@ public class CountriesService {
     @Inject
     public CountriesApi api;
 
-    private void CountryService (){
+    private CountriesService() {
         DaggerApiComponent.create().inject(this);
     }
 

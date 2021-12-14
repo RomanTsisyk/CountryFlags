@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         viewModel.loading.observe(this, isLoading -> {
             if (isLoading != null) {
-                listError.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+                loadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE);
                 if (isLoading) {
                     listError.setVisibility(View.GONE);
                     countriesList.setVisibility(View.GONE);
