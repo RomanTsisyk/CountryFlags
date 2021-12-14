@@ -2,25 +2,21 @@ package romantsisyk.github.io.model;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.Single;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
+import romantsisyk.github.io.di.DaggerApiComponent;
 
 public class CountriesService {
 
-    private static final String BASE_URL = "https://raw.githubusercontent.com";
 
     static CountriesService instance;
 
-    private CountriesApi api = new Retrofit.Builder()
-            .baseUrl(BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
-            .create(CountriesApi.class);
+    @Inject
+    public CountriesApi api;
 
     private void CountryService (){
+        DaggerApiComponent.create().inject(this);
     }
 
     public static  CountriesService getInstance() {
