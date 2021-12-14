@@ -40,7 +40,7 @@ public class ListViewModel extends ViewModel {
         loading.setValue(true);
         disposable.add(
                 countriesService.getCountries()
-                        .subscribeOn(Schedulers.io())
+                        .subscribeOn(Schedulers.newThread())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribeWith(new DisposableSingleObserver<List<CountryModel>>() {
 
